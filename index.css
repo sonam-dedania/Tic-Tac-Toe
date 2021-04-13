@@ -1,0 +1,52 @@
+body
+{
+    background-color: #000000;
+}
+.left
+{
+    background-color: #333333;
+    width: 160px;
+    height: 600px;
+    margin-left: 110px;
+    float: left;
+    margin-top: 80px;
+}
+.right
+{
+    background-color: #333333;
+    width: 160px;
+    height: 600px;
+    margin-right: 110px;
+    float: right;
+    margin-top: 80px;
+}
+.board
+{
+    text-align: center;
+}
+table
+{
+    margin-top: 80px;
+    color: #ffffff;
+}
+table td
+{
+    padding: 70px;
+    
+}
+.border-bot
+{
+    border-bottom: solid 5px #ffffff;
+}
+.border-top
+{
+    border-top: solid 5px #ffffff;
+}
+.border-left
+{
+    border-left: solid 5px #ffffff;
+}
+.border-right
+{
+    border-right: solid 5px #ffffff;
+}

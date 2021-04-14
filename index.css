@@ -28,11 +28,12 @@ table
 {
     margin-top: 80px;
     color: #ffffff;
+    font-size: 100px;
 }
 table td
 {
-    padding: 70px;
-    
+    width: 140px;
+    height: 140px;   
 }
 .border-bot
 {

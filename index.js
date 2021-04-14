@@ -1,4 +1,3 @@
-
 var x = 0;
 var table = document.getElementById("table1");
 var cells = document.getElementsByTagName("td");
@@ -9,15 +8,17 @@ var sq = [];
 function test() {
     for (var i = 0; i < cells.length; i++) {
         cells[i].onclick = function () {
+            if (this.innerHTML === "") {
+                if (count % 2 == 0) {
+                    this.innerHTML = x;
+                }
+                else {
+                    this.innerHTML = y;
+                }
+                count++;
+                checkWinner();
+            }
 
-            if (count % 2 == 0) {
-                this.innerHTML = x;
-            }
-            else {
-                this.innerHTML = y;
-            }
-            count++;
-            checkWinner();
         }
     }
 }
@@ -40,18 +41,38 @@ function checkWinner() {
         [0, 4, 8],
         [2, 4, 6]
     ];
-    var a = getUserData();
+    getUserData();
+
+    var isGameTie = true;
+
     for (var i = 0; i < array.length; i++) {
         var [a, b, c] = array[i];
-
         if (sq[a] !== "" && sq[a] === sq[b] && sq[a] === sq[c]) {
             //            return sq[a];
-            //        console.log("sq[a]", sq[a], "sq[b]", sq[b], "sq[c]", sq[c]);
-            alert("game over");
+            showWinner(sq[b]);
+            isGameTie = false;
         }
     }
-
+    if (isGameTie && sq.indexOf("") == -1) {
+        alert("Game is tie");
+    }
 }
+
+var showWinner = function (winner) {
+    setTimeout(function () {
+        if (confirm("Game over: " + winner + " is winner")) {
+            for (var i = 0; i < cells.length; i++) {
+                document.getElementById("td" + (i + 1)).innerHTML = "";
+            }
+        }
+        else {
+            for (var i = 0; i < cells.length; i++) {
+                document.getElementById("td" + (i + 1)).innerHTML = "";
+            }
+        }
+    }, 500);
+}
+
 window.onload = function () {
     test();
 }
